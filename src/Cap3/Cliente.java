@@ -69,4 +69,12 @@ public class Cliente {
         return Objects.hash(getCpf(), getNome());
     }
 
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
 }
