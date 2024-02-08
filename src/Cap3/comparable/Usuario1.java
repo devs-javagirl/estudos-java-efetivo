@@ -1,12 +1,14 @@
 package Cap3.comparable;
 
+import java.time.LocalDate;
+
 public class Usuario1 implements Comparable {
 
     private String name;
 
     private String email;
 
-    private String nascimento;
+    private LocalDate nascimento;
 
     public String getName() {
         return name;
@@ -24,15 +26,15 @@ public class Usuario1 implements Comparable {
         this.email = email;
     }
 
-    public String getNascimento() {
+    public LocalDate getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(String nascimento) {
+    public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
     }
 
-    public Usuario1(String name, String email, String nascimento) {
+    public Usuario1(String name, String email, LocalDate nascimento) {
         this.name = name;
         this.email = email;
         this.nascimento = nascimento;
@@ -41,8 +43,8 @@ public class Usuario1 implements Comparable {
     @Override
     public int compareTo(Object o) {
         Usuario1 usuario = (Usuario1) o;
-        int resultado = this.nascimento.compareTo(usuario.nascimento);
-        return resultado;
+        return this.nascimento.compareTo(usuario.nascimento);
+
     }
 
     @Override
