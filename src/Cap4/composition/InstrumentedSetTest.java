@@ -1,4 +1,4 @@
-package Cap3.composition;
+package Cap4.composition;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +16,10 @@ public class InstrumentedSetTest {
     products.add(product2);
 
     InstrumentedSet<Product> productsInst = new InstrumentedSet<>(products);
+    productsInst.add(product1);
+    productsInst.add(product1);
+    productsInst.addAll(products);
+    productsInst.addAll(products);
 
     System.out.println("total items: " + productsInst.getAddCount());
 
