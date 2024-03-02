@@ -12,7 +12,7 @@ public class FowardingSet<E> implements Set<E> {
     this.s = s;
   }
 
-   public int size() {
+  public int size() {
     return s.size();
   }
 

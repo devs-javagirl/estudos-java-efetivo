@@ -12,9 +12,8 @@ public class InstrumentedSetTest {
     Product product2 = new Product("Pen", 3.45);
 
     Set<Product> products = new HashSet<>();
-
-    //products.add(product1);
-    //products.add(product2);
+    products.add(product1);
+    products.add(product2);
 
     InstrumentedSet<Product> productsInst = new InstrumentedSet<>(products);
     productsInst.add(product1);
