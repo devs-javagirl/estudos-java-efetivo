@@ -17,12 +17,18 @@ public class InstrumentedSetTest {
 
     InstrumentedSet<Product> productsInst = new InstrumentedSet<>(products);
     productsInst.add(product1);
-    productsInst.add(product1);
-    productsInst.addAll(products);
-    productsInst.addAll(products);
+    productsInst.add(product2);
+
+    Set<Product> productsCol = new HashSet<>();
+    productsCol.add(new Product("rule", 5));
+    productsCol.add(new Product("eraser", 2.45));
+
+    productsInst.addAll(productsCol);
 
     System.out.println("total items: " + productsInst.getAddCount());
 
+    productsInst.add(new Product("eraser", 3.25));
+    System.out.println("total items: " + productsInst.getAddCount());
 
   }
 
