@@ -1,12 +1,11 @@
 package Cap4.interfacees;
 
 import javax.sound.sampled.AudioFileFormat;
-import java.applet.AudioClip;
 
 public class SingerImpl implements SingerSongwriter {
 
     @Override
-    public AudioClip sing(AudioFileFormat s) {
+    public String sing(AudioFileFormat s) {
         return null;
     }
 
@@ -24,4 +23,6 @@ public class SingerImpl implements SingerSongwriter {
     public AudioFileFormat compose(int chartPosition) {
         return null;
     }
+
+
 }
