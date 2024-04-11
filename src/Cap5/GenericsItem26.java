@@ -15,11 +15,11 @@ public class GenericsItem26 {
     // Coleção bruta sem definição de tipo
     // Permite a inclusão de objetos diferentes
 
-    Collection stamps = new ArrayList();
+    List stamps = new ArrayList();
     stamps.add(new Stamp("BR", 4.50));
     stamps.add(new Coin("BR", 2.0));
 
-    System.out.println(stamps);
+    System.out.println(stamps.get(0));
   }
 
   private static void rawExampleWithError() {
@@ -109,9 +109,8 @@ public class GenericsItem26 {
   }
 
   private static void rawNumElementsInCommonTypeSafeTestNOK() {
-    Set<?> s1 = new HashSet();
+   Set<?> s1 = new HashSet();
     s1.add(null);
-
 
     Set s2 = new HashSet();
     s2.add(2.0);
@@ -121,12 +120,12 @@ public class GenericsItem26 {
 
   }
   public static void main(String[] args) {
-    rawExample();
-    // rawExampleWithError();
-    // bookExample();
-    // rawNumElementsInCommonTestOk();
-    // rawNumElementsInCommonTestNOK();
-    // rawNumElementsInCommonTypeSafeTestNOK();
+    //rawExample();
+    //rawExampleWithError();
+    //bookExample();
+    //rawNumElementsInCommonTestOk();
+    //rawNumElementsInCommonTestNOK();
+    rawNumElementsInCommonTypeSafeTestNOK();
 
   }
 

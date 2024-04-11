@@ -11,7 +11,7 @@ public class TesteTiposBrutosVsGenerics {
     }
 
     // Método para adicionar elementos a uma lista de forma segura usando generics
-    public static <T> void adicionarElementoListaSegura(List<T> lista, T elemento) {
+    public static <E> void adicionarElementoListaSegura(List<E> lista, E elemento) {
         lista.add(elemento);
     }
 

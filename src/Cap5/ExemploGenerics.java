@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ExemploGenerics {
 
-    public static <T> void adicionarElemento(List<T> lista, T elemento) {
+    public static <E> void adicionarElemento(List<E> lista, E elemento) {
         lista.add(elemento);
     }
 
