@@ -16,7 +16,6 @@ public class MapGenericTest {
 
     System.out.println(result);
 
-
   }
 
 }
