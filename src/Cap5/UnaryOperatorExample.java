@@ -22,7 +22,7 @@ public class UnaryOperatorExample {
       System.out.println(sameString.apply(s));
     }
 
-    Number[] numbers = { 1, 2.0, 3L};
+    Number[] numbers = { 1, 2.0, 3L, Integer.valueOf(1) };
     UnaryOperator<Number> sameNumber = identityFunction();
     for (Number n : numbers) {
       System.out.println(sameNumber.apply(n));
@@ -43,9 +43,6 @@ public class UnaryOperatorExample {
         o próprio objeto).
         A principio a função identity pode parecer desnecessária, mas pode contribuir
         em clareza e flexibilidade.
-
-
-
      */
     UnaryOperator<LocalDate> operator = localDate -> localDate.plusDays(10);
 

@@ -7,6 +7,7 @@ public class ComparableTest {
 
     public static void main(String[] args) {
 
+
         Usuario1 usuario1 = new Usuario1("Ana", "teste1@email.com", LocalDate.of(2024, 1, 31));
         Usuario1 usuario2 = new Usuario1("Beatriz", "teste1@email.com", LocalDate.of(2024, 1, 31));
         Usuario1 usuario3 = new Usuario1("Maria", "teste1@email.com", LocalDate.of(2024, 1, 1));
