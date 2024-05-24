@@ -1,5 +1,6 @@
 package Cap5;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SwapExample {
@@ -18,7 +19,12 @@ public class SwapExample {
 
     // Exemplo de uso
     public static void main(String[] args) {
-        List<String> strings = List.of("a", "b", "c", "d");
+        List<String> strings = new ArrayList<>();
+        strings.add("a");
+        strings.add("b");
+        strings.add("c");
+        strings.add("d");
+
         System.out.println("Antes da troca: " + strings);
 
         swap(strings, 1, 3);
