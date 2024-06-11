@@ -13,13 +13,13 @@ public class CompanyCreation {
     List<PropertyMap> companies = new ArrayList<>();
 
     PropertyMap company = new PropertyMap();
-    company.setProperty(CompanyProperties.RAZAO_SOCIAL, "Dell Technology");
+    company.setProperty(CompanyProperties.COMPANY_NAME, "Dell Technology");
     company.setProperty(CompanyProperties.PHONE_NUMBER, new PhoneNumber("55", "13", "3402-0329"));
     companies.add(company);
 
     PropertyMap company1 = new PropertyMap();
-    company.setProperty(CompanyProperties.RAZAO_SOCIAL, "Dell Technology");
-    company.setProperty(CompanyProperties.PHONE_NUMBER, new PhoneNumber("55", "13", "3402-0329"));
+    company1.setProperty(CompanyProperties.COMPANY_NAME, "Cisco Technology");
+    company1.setProperty(CompanyProperties.PHONE_NUMBER, new PhoneNumber("55", "43", "5932-3203"));
     companies.add(company1);
 
     return companies;
