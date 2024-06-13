@@ -2,6 +2,7 @@ package Cap5.HeterogeneousContainer;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class PropertyMap {
 
@@ -17,7 +18,13 @@ public class PropertyMap {
 
   @Override
   public String toString(){
-    return properties.values().toString();
+    StringBuilder result = new StringBuilder();
+
+    for(Entry<Property<?>, Object> property:properties.entrySet()){
+      result.append(property.getKey()).append(": ").append(property.getValue()).append(" ");
+    }
+
+    return result.toString();
   }
 
 }
