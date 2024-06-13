@@ -14,9 +14,9 @@ public class GenericContainers {
     }
 
     public <T> T getFavorite(Class<T> type) {
-      return type.cast(favorites.get(type));
+      //return type.cast(favorites.get(type));
       // Linha abaixo é teste, funciona mas deixa warning de Unchecked cast
-      // return (T)favorites.get(type);
+      return (T) favorites.get(type);
     }
 
   }
@@ -24,8 +24,9 @@ public class GenericContainers {
   public static void main(String[] args) {
     Favorites f = new Favorites();
     f.putFavorite(String.class, "Java");
-    f.putFavorite(Integer.class, 43);
+    f.putFavorite(Integer.class, 90);
     f.putFavorite(Class.class, Favorites.class);
+    f.putFavorite(Object.class, Object.class);
 
     //Linha abaixo é teste, erro em tempo de execução NullPointerException
     //f.putFavorite(null, Favorites.class);
@@ -33,8 +34,9 @@ public class GenericContainers {
     String favoriteString = f.getFavorite(String.class);
     int favoriteInteger = f.getFavorite(Integer.class);
     Class<?> favoriteClass = f.getFavorite(Class.class);
+    Object objClass = f.getFavorite(Object.class);
 
-    System.out.printf("%s %d %s%n", favoriteString,
-        favoriteInteger, favoriteClass.getName());
+    System.out.printf("%s %d %s %s %n", favoriteString,
+        favoriteInteger, favoriteClass.getName(), objClass.getClass());
   }
 }
