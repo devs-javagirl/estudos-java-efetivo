@@ -39,5 +39,6 @@ public enum PhaseEnumMap {
         System.out.println(Transition.from(SOLID, GAS));
         System.out.println(Transition.from(SOLID, SOLID));
         System.out.println(Transition.from(GAS, PLASMA));
+        System.out.println(Transition.from(LIQUID, PLASMA));
     }
 }

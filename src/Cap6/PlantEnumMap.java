@@ -35,18 +35,23 @@ public class PlantEnumMap {
     }
 
     private static void printUsingBasicStream(List<PlantEnumMap> garden) {
-        System.out.println(garden.stream().collect(groupingBy(p -> p.lifeCycle)));
+        System.out.println(garden.stream().collect(groupingBy(c -> c.lifeCycle)));
     }
 
     private static void printUsingEnumMapStream(List<PlantEnumMap> garden) {
-        System.out.println(garden.stream().collect(groupingBy(p -> p.lifeCycle,
+        System.out.println(garden.stream().collect(groupingBy(PlantEnumMap::getLifeCycle,
                 () -> new EnumMap<>(LifeCycle.class), toSet())));
+    }
+
+    private LifeCycle getLifeCycle() {
+        return this.lifeCycle;
     }
 
     public static void main(String[] args) {
         List<PlantEnumMap> garden = new ArrayList<>();
         garden.add(new PlantEnumMap("Rose", PlantEnumMap.LifeCycle.ANNUAL));
         garden.add(new PlantEnumMap("Daisy", PlantEnumMap.LifeCycle.PERENNIAL));
+        //garden.add(new PlantEnumMap("Orchidea", LifeCycle.BIENNAL));
 
         printUsingEnumMap(garden);
         printUsingBasicStream(garden);
