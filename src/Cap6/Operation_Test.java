@@ -6,6 +6,7 @@ public class Operation_Test {
         double x = 2.0;
         double y = 2.0;
         test(Operation_Extended.class, x, y);
+        test(Operation_Basic.class, x, y);
     }
 
     private static <T extends Enum<T> & Operation_> void test (
