@@ -17,7 +17,7 @@ public class RunTests1 {
         int passed = 0;
         Class<?> testClass = Class.forName(args[0]);
         for (Method m : testClass.getDeclaredMethods()) {
-            if (m.isAnnotationPresent(Testy.class)) {
+            if (m.isAnnotationPresent(Test.class)) {
                 tests++;
                 try {
                     m.invoke(null);

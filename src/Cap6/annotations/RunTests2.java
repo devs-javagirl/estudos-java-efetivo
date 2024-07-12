@@ -17,7 +17,7 @@ public class RunTests2 {
         int passed = 0;
         Class<?> testClass = Class.forName(args[0]);
         for (Method m : testClass.getDeclaredMethods()) {
-            if (m.isAnnotationPresent(Testy.class)) {
+            if (m.isAnnotationPresent(Test.class)) {
                 tests++;
                 try {
                     m.invoke(null);
@@ -25,14 +25,14 @@ public class RunTests2 {
                 } catch (Throwable ex) {
                     System.out.printf("Teste %s falhou: %s %n", m, ex.getCause());
                 }
-            } else if (m.isAnnotationPresent(ExceptionTesty.class)) {
+            } else if (m.isAnnotationPresent(ExceptionTest.class)) {
                 tests++;
                 try {
                     m.invoke(null);
                     System.out.printf("Teste %s falhou: não lançou exceção%n", m);
                 } catch (Throwable ex) {
                     Throwable cause = ex.getCause();
-                    Class<? extends Throwable> excType = m.getAnnotation(ExceptionTesty.class).value();
+                    Class<? extends Throwable> excType = m.getAnnotation(ExceptionTest.class).value();
                     if (excType.isInstance(cause)) {
                         passed++;
                     } else {

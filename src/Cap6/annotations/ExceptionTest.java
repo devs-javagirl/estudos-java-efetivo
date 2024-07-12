@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 // Define a anotação @ExceptionTesty
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface ExceptionTesty {
+public @interface ExceptionTest {
     Class<? extends Throwable> value();
 }
