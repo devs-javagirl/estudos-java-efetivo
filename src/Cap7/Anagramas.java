@@ -53,6 +53,7 @@ public class Anagramas {
     // Método principal para executar o programa
     public static void main(String[] args) throws IOException {
         String filePath = "C:\\javatest\\dictionary.txt"; // Insira o caminho para o arquivo de palavras
+
         /**
          * Exemplo de arquivo de palavras:
          * listen
