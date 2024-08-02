@@ -1,7 +1,8 @@
 package Cap7;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.function.BiPredicate;
+import java.util.function.Predicate;
 
 public class Item44Exemplo1 {
 
@@ -16,12 +17,12 @@ public class Item44Exemplo1 {
         //Modo mais moderno
         //criar um bipredicate para remover a entrada mais antiga
         LinkedHashMap<String, Integer> cache = new LinkedHashMap<>(16, 0.75f, true);
-        BiPredicate<Map<String, Integer>,Map.Entry<String, Integer>> removeEldestEntry = (c, eldest) -> c.size() > 100;
+        Predicate<Map<String, Integer>> removeEldestEntry = (c) -> c.size() > 100;
 
         for (int i = 0; i < 105; i++) {
             cache.put("Key" + i, i);
             //usar teste do bipredicate para remover a entrada mais antiga do cache
-            if (removeEldestEntry.test(cache, cache.lastEntry())) {
+            if (removeEldestEntry.test(cache)) {
                 cache.remove(cache.firstEntry().getKey());
                 System.out.println("Removendo a entrada mais antiga do cache");
             }
