@@ -1,9 +1,9 @@
 package Cap7;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
@@ -13,6 +13,7 @@ public class FunctionsWithoutSideEffects {
 
 
     private static Map<String, Long> wrongFrequency(List<String> words) {
+        //não use forEach em streams com variaveis externas
         Map<String, Long> wordFrequency = new HashMap<>();
         words.stream().forEach(word -> {
             wordFrequency.merge(word.toLowerCase(), 1L, Long::sum);
@@ -22,9 +23,7 @@ public class FunctionsWithoutSideEffects {
 
     private static Map<String, Long> frequencyStream(List<String> words) {
         Map<String, Long> wordFrequency = new HashMap<>();
-        words.stream().collect(groupingBy(String::toLowerCase, counting()))
-            .forEach((key, value) -> wordFrequency.put(key, value));
-
+        wordFrequency.putAll(words.stream().collect(groupingBy(String::toLowerCase, counting())));
         return wordFrequency;
 
     }
@@ -50,8 +49,17 @@ public class FunctionsWithoutSideEffects {
     private static Map<Artist, Album> getArtistLatestAlbum(List<Album> albums) {
         return albums.stream().collect(
                 toMap(Album::artist, album -> album, (v1, v2) -> v2));
+    }
 
 
+    private static  Map<Artist, Album> getArtistTopSales(List<Album> albums) {
+        Map<Artist, Album> topAlbums = albums.stream()
+                .collect(Collectors.toMap(
+                        Album::artist,
+                        Function.identity(),
+                        BinaryOperator.maxBy(Comparator.comparing(Album::sales))
+                ));
+        return topAlbums;
     }
 
 
@@ -69,12 +77,13 @@ public class FunctionsWithoutSideEffects {
 
         List<Album> albums = new ArrayList<>();
 
-        albums.add(new Album(new Artist("Mozart"), "Sinfonia 5", 5000));
+        albums.add(new Album(new Artist("Mozart"), "Sinfonia 5", 50000));
         albums.add(new Album(new Artist("Mozart"), "Sinfonia 10", 10000));
         albums.add(new Album(new Artist("Vivaldi"), "As quatro estações", 10010));
+
         System.out.println(getArtistLatestAlbum(albums));
 
-
+        System.out.println(getArtistTopSales(albums));
 
     }
 }
