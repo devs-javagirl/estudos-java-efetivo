@@ -12,7 +12,6 @@ public class Item47_Collection {
         return stream::iterator;
     }
 
-    // Não entendi o uso desta função
     public static <E> Stream<E> streamOf(Iterable<E> iterable) {
         return StreamSupport.stream(iterable.spliterator(), false);
     }
