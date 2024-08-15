@@ -13,7 +13,7 @@ public class FunctionsWithoutSideEffects {
 
 
     private static Map<String, Long> wrongFrequency(List<String> words) {
-        //não use forEach em streams com variaveis externas
+        //nao use forEach em streams com variaveis externas
         Map<String, Long> wordFrequency = new HashMap<>();
         words.stream().forEach(word -> {
             wordFrequency.merge(word.toLowerCase(), 1L, Long::sum);
@@ -22,9 +22,7 @@ public class FunctionsWithoutSideEffects {
     }
 
     private static Map<String, Long> frequencyStream(List<String> words) {
-        Map<String, Long> wordFrequency = new HashMap<>();
-        wordFrequency.putAll(words.stream().collect(groupingBy(String::toLowerCase, counting())));
-        return wordFrequency;
+        return words.stream().collect(groupingBy(String::toLowerCase, counting()));
 
     }
 
@@ -65,7 +63,7 @@ public class FunctionsWithoutSideEffects {
 
     public static void main(String[] args) {
         List<String> words = List.of("casa", "prato", "garfo", "colher", "faca", "casa", "casa", "faca", "garrafa", "guardanapo",
-                "copo", "garrafa", "caneca", "caneta", "lápis", "estojo", "borracha", "régua", "tesoura", "pincel", "bucha", "detergente");
+                "copo", "garrafa", "caneca", "caneta", "lï¿½pis", "estojo", "borracha", "rï¿½gua", "tesoura", "pincel", "bucha", "detergente");
 
         System.out.println(wrongFrequency(words));
 
@@ -79,7 +77,7 @@ public class FunctionsWithoutSideEffects {
 
         albums.add(new Album(new Artist("Mozart"), "Sinfonia 5", 50000));
         albums.add(new Album(new Artist("Mozart"), "Sinfonia 10", 10000));
-        albums.add(new Album(new Artist("Vivaldi"), "As quatro estações", 10010));
+        albums.add(new Album(new Artist("Vivaldi"), "As quatro estaï¿½ï¿½es", 10010));
 
         System.out.println(getArtistLatestAlbum(albums));
 
