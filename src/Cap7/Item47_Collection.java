@@ -25,6 +25,7 @@ public class Item47_Collection {
     }
 
     public static void main(String[] args) {
+        //usos habituais normais de collections
         List<String> list = List.of("um", "dois", "três", "quatro");
         list.forEach(number -> System.out.println(number));
         for(String number: list){
@@ -33,20 +34,23 @@ public class Item47_Collection {
 
         Stream<String> stream = Stream.of("um", "dois", "três", "quatro");
         stream.forEach(number -> System.out.println(number));
+
         // Não é possível fazer o forEach acima 2 vezes, apresenta o erro abaixo
         // stream has already been operated upon or closed
 
         // O comando For abaixo não funciona com stream
-        // for (String number: stream) {
-        //    System.out.println(number);
-        // }
+        /*
+         for (String number: stream) {
+           System.out.println(number);
+        }
+        */
 
         System.out.println("Exemplo utilizando método streamOf");
         Stream<String> st = streamOf(list);
         st.forEach(number -> System.out.println(number));
 
         System.out.println("Exemplo de conjunto utilizando stream a partir de uma lista");
-        List<String> conjunto = List.of("a", "b", "c");
+        List<String> conjunto = List.of("1", "2", "3", "4");
         Stream<List<String>> conjunto_stream = Item47_Sublists.of(conjunto);
         conjunto_stream.forEach(cjto -> System.out.println(cjto));
 
