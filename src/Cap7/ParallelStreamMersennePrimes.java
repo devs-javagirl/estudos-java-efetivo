@@ -1,6 +1,8 @@
 package Cap7;
 
+import org.jetbrains.annotations.NotNull;
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.stream.Stream;
 
 public class ParallelStreamMersennePrimes {
@@ -9,6 +11,17 @@ public class ParallelStreamMersennePrimes {
 
         displayMersennePrimesSequencial(20);
         displayMersennePrimesParallel(20);
+
+        teste(null);
+    }
+
+    private static void teste(@NotNull String obj){
+        if(obj != null || obj.isEmpty()){
+            System.out.println("obj é nulo");
+        }else{
+            System.out.println("obj não é nulo");
+        }
+        //donothing
     }
 
     // Exibe os primeiros 20 primos de Mersenne
