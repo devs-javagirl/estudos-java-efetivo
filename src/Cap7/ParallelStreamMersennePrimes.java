@@ -1,8 +1,8 @@
 package Cap7;
 
 import org.jetbrains.annotations.NotNull;
+
 import java.math.BigInteger;
-import java.util.Date;
 import java.util.stream.Stream;
 
 public class ParallelStreamMersennePrimes {
@@ -15,10 +15,10 @@ public class ParallelStreamMersennePrimes {
         teste(null);
     }
 
-    private static void teste(@NotNull String obj){
-        if(obj != null || obj.isEmpty()){
+    private static void teste(@NotNull String obj) {
+        if (obj != null || obj.isEmpty()) {
             System.out.println("obj é nulo");
-        }else{
+        } else {
             System.out.println("obj não é nulo");
         }
         //donothing
