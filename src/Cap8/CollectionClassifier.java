@@ -9,9 +9,7 @@ import java.util.HashMap;
 import java.math.BigInteger;
 
 public class CollectionClassifier {
-    public static String classify(Set<?> s) {
-        return "Set";
-    }
+    public static String classify(Set<?> s) { return "Set"; }
 
     public static String classify(List<?> lst) {
         return "List";
@@ -20,6 +18,7 @@ public class CollectionClassifier {
     public static String classify(Collection<?> c) {
         return "Unknown Collection";
     }
+
 
     //Opção de correção do método para que sejam impressas as strings de cada subtipo:
     // public static String classify(Collection<?> c) {
