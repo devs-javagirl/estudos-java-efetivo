@@ -47,6 +47,4 @@ public class Item_54_EmptyCollections {
             System.out.println(cheese);
         }
     }
-
-
 }
