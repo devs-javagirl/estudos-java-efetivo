@@ -5,12 +5,13 @@ import java.util.HashSet;
 public class ObserverExecution {
     public static void main(String[] args) {
         ObservableSet<Integer> set = new ObservableSet<>(new HashSet<>());
-        populateSet(set);
-        //populateWithRemove(set);
+        //populateSet(set);
+        populateWithRemove(set);
     }
 
     private static void populateSet(ObservableSet<Integer> set) {
 
+        //DEFINIÇÃO DO COMPORTAMENTO DO OBSERVADOR
         set.addObserver((s, e) -> System.out.println("tamanho " + s.size() + " elemento " + e));
 
         for (int i = 0; i < 100; i++)

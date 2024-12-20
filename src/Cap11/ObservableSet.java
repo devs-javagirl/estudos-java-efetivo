@@ -19,7 +19,7 @@ public class ObservableSet<E> extends FowardingSet<E> {
     }
 
     public boolean removeObserver(SetObserver<E> observer) {
-        synchronized (collection) {
+        synchronized(collection) {
             return collection.remove(observer);
         }
     }
