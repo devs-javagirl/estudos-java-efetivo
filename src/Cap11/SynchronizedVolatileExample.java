@@ -1,21 +1,23 @@
 package Cap11;
 
-public class SynchronizedExample {
+public class SynchronizedVolatileExample {
     private static class Counter {
-        private int value = 0;
+        private volatile int value = 0;
 
-        // Método sincronizado para incrementar o valor
-        public synchronized void increment() {
+        //O volatile garante que a variável value seja sempre lida e escrita 
+        //diretamente na memória principal, evitando que threads leiam valores 
+        //desatualizados. Porém, deve ser usado com cuidado, pois não garante
+        //a atomicidade de operações compostas quando há múltiplas threads.
+
+        public void increment() {
             value++;
         }
 
-        // Método sincronizado para decrementar o valor
-        public synchronized void decrement() {
+        public void decrement() {
             value--;
         }
 
-        // Método sincronizado para obter o valor atual
-        public synchronized int getValue() {
+        public int getValue() {
             return value;
         }
     }
