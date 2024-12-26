@@ -1,22 +1,24 @@
 package Cap11;
 
-public class SynchronizedExample {
+import java.util.concurrent.atomic.AtomicLong;
+
+public class SynchronizedAtomicExample {
     private static class Counter {
-        private int value = 0;
+        private static final AtomicLong value = new AtomicLong();
 
-        // Método sincronizado para incrementar o valor
-        public synchronized void increment() {
-            value++;
+        //A classe AtomicLong fornece operações atômicas, que são thread-safe, 
+        //não sendo necessário o uso de synchronized.
+
+        public void increment() {
+            value.getAndIncrement();
         }
 
-        // Método sincronizado para decrementar o valor
-        public synchronized void decrement() {
-            value--;
+        public void decrement() {
+            value.getAndDecrement();
         }
 
-        // Método sincronizado para obter o valor atual
-        public synchronized int getValue() {
-            return value;
+        public long getValue() {
+            return value.longValue();
         }
     }
 
