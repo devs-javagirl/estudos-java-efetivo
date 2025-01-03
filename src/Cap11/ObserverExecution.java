@@ -54,8 +54,9 @@ public class ObserverExecution {
                 if(element == 23) {
                     ExecutorService exec = Executors.newSingleThreadExecutor();
                     try {
+                        long time = CountDownLatchDemo.time(exec, 1, () -> set.removeObserver(this));
                         exec.submit(() -> set.removeObserver(this)).get();
-
+                        System.out.println("Tempo de execução: " + time);
                     } catch (ExecutionException | InterruptedException ex){
                         throw new AssertionError(ex);
                     } finally {

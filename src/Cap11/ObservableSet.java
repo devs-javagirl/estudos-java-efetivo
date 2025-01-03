@@ -11,32 +11,32 @@ public class ObservableSet<E> extends FowardingSet<E> {
         super(set);
     }
 
-    private final List<SetObserver<E>> collection = new ArrayList<>();
+    //private final List<SetObserver<E>> collection = new ArrayList<>();
     // O metodo CopyOnWriteArrayList é uma variante de ArrayList em que todas as
     // operações são implementadas fazendo uma cópia nova do array, evitando
     // erro de concorrência
-    //private final List<SetObserver<E>> collection = new CopyOnWriteArrayList<>();
+    private final List<SetObserver<E>> collection = new CopyOnWriteArrayList<>();
 
     public void addObserver(SetObserver<E> observer) {
-        synchronized(collection) {
+        //synchronized(collection) {
             collection.add(observer);
-        }
+        //}
     }
 
     public boolean removeObserver(SetObserver<E> observer) {
-        synchronized(collection) {
+        //synchronized(collection) {
             return collection.remove(observer);
-        }
+        //}
     }
 
     private void notifyElementAdded(E element) {
         // A implementação abaixo pode gerar erros de concorrência e deadlock,
         // pois depende de como foi implementada a função added, que pode manipular
         // os elementos do array de forma indevida.
-         synchronized(collection) {
+         //synchronized(collection) {
              for (SetObserver<E> observer: collection)
                  observer.added(this, element);
-         }
+         //}
 
         // A implementação abaixo, resolve o problema de concorrência,
         // pois executa o syncronized somente quando faz a cópia do array
