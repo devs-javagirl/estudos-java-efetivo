@@ -35,9 +35,9 @@ public class CountDownLatchDemo {
 
     // Exemplo de uso
     public static void main(String[] args) {
-        Executor executor = Executors.newFixedThreadPool(2);
+        Executor executor = Executors.newFixedThreadPool(10);
         try {
-            long time = time(executor, 2, () -> System.out.println("Hello"));
+            long time = time(executor, 10, () -> System.out.println("Hello"));
             System.out.println("Tempo de execução: " + time);
         } catch (InterruptedException e) {
             e.printStackTrace();
